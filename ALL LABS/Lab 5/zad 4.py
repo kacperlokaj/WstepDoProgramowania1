@@ -10,26 +10,30 @@
 
 import random
 punkty = []
-for i in range(15):
-    a = random.uniform(0, 50)
-    a = round(a,2)
-    punkty.append(a)
+liczba_stud = 15
+for i in range(liczba_stud):
+    # punkty = random.random() * 100 % 50
+    p = random.uniform(0, 50)
+    punkty.append(round(p, 2))
+print()
 print(punkty)
-print("Wartosc maksymalna: ", max(punkty))
-print("Wartosc minimalna: ", min(punkty))
-b = float(input("Podaj liczbe punktow: "))
-if b in punkty:
-    c = punkty.index(b)
-    print(c)
+print(f'min = {min(punkty)}')
+print(f'max = {max(punkty)}')
+p = float(input('Podaj liczbę punktów: '))
+if p in punkty:
+    print(punkty.index(p))
 else:
-    print("wartosc nie wystepuje w liscie ")
-y=sum(punkty)
-print("srednia", round(y/n,2))
-sr = round(y/n,2)
-punkty_2=[]
-for i in range(n):
-    if punkty[i] > sr:
-        punkty_2.append(punkty[i])
-print(punkty_2)
+    print(f'liczba {p} punktów nie występuje na liście')
+print()
 
+#Oblicz srednia liczbe punktów z egzaminu
+y=sum(punkty)
+sr = round(y/liczba_stud,2)
+print("srednia",sr)
+punkty_w =[]
+for i in range (liczba_stud):
+    if punkty[i] > sr:
+        punkty_w.append(punkty[i])
+punkty_n = [p for p in punkty if p < sr]
+print(punkty_n, punkty_w, len(punkty_n), len(punkty_w))
 
